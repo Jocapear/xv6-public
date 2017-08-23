@@ -1,5 +1,5 @@
 // init: The initial user-level program
-
+//Modificar el código de init.c para que 
 #include "types.h"
 #include "stat.h"
 #include "user.h"
@@ -20,7 +20,7 @@ main(void)
   dup(0);  // stderr
 
   for(;;){
-    printf(1, "init: starting sh\n");
+    printf(1, "°0° Bienvenido °0°\n");
     pid = fork();
     if(pid < 0){
       printf(1, "init: fork failed\n");
