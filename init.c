@@ -20,7 +20,7 @@ main(void)
   dup(0);  // stderr
 
   for(;;){
-    printf(1, "°0° Bienvenido °0°\n");
+    printf(1, "|¬|°0°0°  Bienvenido  °0°0°|¬|\n");
     pid = fork();
     if(pid < 0){
       printf(1, "init: fork failed\n");
