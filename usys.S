@@ -35,3 +35,7 @@ SYSCALL(set_priority)
 SYSCALL(shmem)
 SYSCALL(shmat)
 SYSCALL(shdemat)
+SYSCALL(signal)
+SYSCALL(killsignal)
+SYSCALL(getppid)
+

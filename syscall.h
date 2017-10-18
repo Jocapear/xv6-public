@@ -1,4 +1,4 @@
-// System call numbers
+	// System call numbers
 #define SYS_fork    1
 #define SYS_exit    2
 #define SYS_wait    3
@@ -26,3 +26,6 @@
 #define SYS_shmem 25
 #define SYS_shmat 26
 #define SYS_shdemat 27
+#define SYS_signal 28
+#define SYS_killsignal 29
+#define SYS_getppid 30

@@ -1,3 +1,4 @@
+#include "types.h"
 struct stat;
 struct rtcdate;
 
@@ -29,6 +30,9 @@ int set_priority(int);
 int shmem(int);
 char * shmat(int);
 int shdemat(int);
+int signal(int, sighandler_t);
+int killsignal(int pid, int signum);
+int getppid(void);
 
 // ulib.c
 int stat(char*, struct stat*);

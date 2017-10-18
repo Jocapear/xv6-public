@@ -142,6 +142,10 @@ userinit(void)
   safestrcpy(p->name, "initcode", sizeof(p->name));
   p->cwd = namei("/");
   p->priority = 125;
+  p->signals[0] = 0;
+  p->signals[1] = 0;
+  p->signals[2] = 0;
+  p->signals[3] = 0;
   // this assignment to p->state lets other cores
   // run this process. the acquire forces the above
   // writes to be visible, and the lock is also needed
@@ -566,3 +570,29 @@ void killProcess(){
     kill(myproc()->pid);
   }
 }
+int sys_killsignal(void) {
+
+ int pid;
+ int signum;
+ struct proc *p;
+ 
+ if(argint(0, &pid) < 0) return -1;
+   if(argint(1, &signum) < 0) return -1;
+ if(signum > 4 || signum < 1) return -1;
+ //Try to find the process with the matching pid.
+ for(p = ptable.proc; p < &ptable.proc[NPROC]; p++)
+        if(p->pid == pid) break;
+   //If the pid is not found finish     
+   if(p->pid != pid) return -1;
+   //Default option finish the process
+   signum -=1; 
+   if((int)p->signals[signum] == 0) kill(p->pid);
+ //Else execute the function
+ //Move the stack to the next position
+ p->tf->esp -= 4;
+
+ //Point to the function
+ p->tf->eip = (uint)p->signals[signum];
+ return 1;
+}
+
