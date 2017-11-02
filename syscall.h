@@ -29,3 +29,4 @@
 #define SYS_signal 28
 #define SYS_killsignal 29
 #define SYS_getppid 30
+#define SYS_chmod 31

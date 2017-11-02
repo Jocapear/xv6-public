@@ -38,4 +38,5 @@ SYSCALL(shdemat)
 SYSCALL(signal)
 SYSCALL(killsignal)
 SYSCALL(getppid)
+SYSCALL(chmod)
 
