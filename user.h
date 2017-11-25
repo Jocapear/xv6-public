@@ -34,6 +34,7 @@ int signal(int, sighandler_t);
 int killsignal(int pid, int signum);
 int getppid(void);
 int chmod(char *, char *);
+int logoff(void);
 
 // ulib.c
 int stat(char*, struct stat*);

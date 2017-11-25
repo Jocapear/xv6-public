@@ -596,3 +596,40 @@ int sys_killsignal(void) {
  return 1;
 }
 
+int compare_str( char *a, char *b ) {
+  int size_a = strlen(a);
+  int size_b = strlen(b);
+  
+  if ( size_a != size_b )
+  {
+    return 0;
+  }
+  int i = 0;
+  while ( i < size_a ) 
+  {
+    if ( a[i] != b[i])
+    {
+      return 0;
+    }
+    i++;
+  }
+  return 1;
+}
+
+int sys_logoff(void) {
+
+  struct proc *p_login;
+
+  char *login_name = "login";
+
+  
+  // Find login
+  for(p_login = ptable.proc; p_login < &ptable.proc[NPROC]; p_login++)
+    if ( compare_str( p_login->name, login_name ) )
+      break;
+
+  kill(p_login->pid);
+
+   return 1;
+ } 
+

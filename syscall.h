@@ -30,3 +30,4 @@
 #define SYS_killsignal 29
 #define SYS_getppid 30
 #define SYS_chmod 31
+#define SYS_logoff 32

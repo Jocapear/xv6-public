@@ -39,4 +39,4 @@ SYSCALL(signal)
 SYSCALL(killsignal)
 SYSCALL(getppid)
 SYSCALL(chmod)
-
+SYSCALL(logoff)
